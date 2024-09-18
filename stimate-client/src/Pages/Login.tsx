@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 
 const Login = () => {
   const [nickname, setNickname] = useState<string>("");
-  let test = "";
 
   const onClickNickname = () => {
     window.sessionStorage.setItem("nickname", nickname ?? "");
