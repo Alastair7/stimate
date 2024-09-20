@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { io } from "socket.io-client";
 
 const Login = () => {
   const [nickname, setNickname] = useState<string>("");
@@ -12,6 +13,8 @@ const Login = () => {
     },
     [nickname]
   );
+
+  const connectWs = io("ws://localhost:3000");
 
   useEffect(() => {
     const value = sessionStorage.getItem("nickname");
@@ -41,7 +44,9 @@ const Login = () => {
         </div>
       </div>
       <div className="flex justify-center items-center gap-2 mt-10">
-        <button className="bg-cyan-200">Create Session</button>
+        <button onClick={() => connectWs} className="bg-cyan-200">
+          Create Session
+        </button>
         <button className="bg-blue-400">Join Session</button>
       </div>
     </div>
