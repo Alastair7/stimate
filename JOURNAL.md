@@ -17,4 +17,9 @@ I was reading about Websockets, how to configure TS and discovered that tsx work
 
 Today I have no much time to code but I have solved some problems.
 Connections were not created when clicked on Create Session, but now they are. Also solved the problem that sessions where automatically created when component renders for the first time.
-My next objective is to improve the websocket server to create rooms.
+
+### 26-09-2024
+
+I have created rooms that will be created with the socket connections. I have decided to use nanoid to create those room IDs.
+My next objective is to figure out how to improve the WebSocket Client. Also I should start thinking in some unit testing...
+WebSocket server was refactored too btw.

@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
 const Login = () => {
   const [nickname, setNickname] = useState<string>("");
-  const connectWs = () => io("ws://localhost:3000");
+  const connectWs = () => {
+    io("ws://localhost:3000");
+    navigate("/session");
+  };
+  let navigate = useNavigate();
 
   const onClickNickname = () => {
     window.sessionStorage.setItem("nickname", nickname ?? "");
