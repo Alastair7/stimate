@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Login } from "../Pages/Login";
+import { Login } from "../Pages/Login/Login";
 import { Session } from "../Pages/Session";
 
 export const router = createBrowserRouter([
@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
     element: <Login />,
   },
   {
-    path: "/session",
+    path: "/sessions",
     element: <Session />,
   },
 ]);

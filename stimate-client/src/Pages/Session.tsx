@@ -1,19 +1,21 @@
 import { useState } from "react";
-import { io } from "socket.io-client";
+import { socket } from "../shared/ws-client/wsClient";
 
 const Session = () => {
-  const client = io();
-  const [socketId, setSocketId] = useState("");
-  client.on("connect", () => {
-    setSocketId(client.id ?? "");
-  });
+  const [isConnected, setIsConnected] = useState(socket.connected);
 
-  console.log("Socket ID", socketId);
+  socket.connect();
+
+  function onConnect() {
+    console.log("Client Connected");
+    setIsConnected(true);
+  }
+
+  socket.on("connect", onConnect);
+
   return (
     <>
-      <div>
-        <h1>{socketId}</h1>
-      </div>
+      <p>{isConnected ? socket.id : "Client Not Connected"}</p>
     </>
   );
 };

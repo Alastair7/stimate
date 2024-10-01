@@ -1,14 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { io } from "socket.io-client";
+import { navigateTo } from "../../Routes/navigator";
 
 const Login = () => {
   const [nickname, setNickname] = useState<string>("");
-  const connectWs = () => {
-    io("ws://localhost:3000");
-    navigate("/session");
-  };
-  let navigate = useNavigate();
 
   const onClickNickname = () => {
     window.sessionStorage.setItem("nickname", nickname ?? "");
@@ -42,13 +36,13 @@ const Login = () => {
             onChange={onChangeNickname}
             placeholder="Nickname"
           />
-          <button onClick={onClickNickname} className="ml-3 bg-sky_blue_100">
+          <button onClick={() => setNickname} className="ml-3 bg-sky_blue_100">
             Set
           </button>
         </div>
       </div>
       <div className="flex justify-center items-center gap-2 mt-10">
-        <button onClick={connectWs} className="bg-cyan-200">
+        <button onClick={() => navigateTo("session")} className="bg-cyan-200">
           Create Session
         </button>
         <button className="bg-blue-400">Join Session</button>

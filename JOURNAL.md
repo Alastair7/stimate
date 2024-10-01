@@ -23,3 +23,8 @@ Connections were not created when clicked on Create Session, but now they are. A
 I have created rooms that will be created with the socket connections. I have decided to use nanoid to create those room IDs.
 My next objective is to figure out how to improve the WebSocket Client. Also I should start thinking in some unit testing...
 WebSocket server was refactored too btw.
+
+### 01-10-2024
+
+I have refactored a little bit the client side and also make the client socket work for react. I just need to improve it a little bit more but I got focused on refactoring. Which it is my next objective: Refactor Login.tsx and then start improving the client websocket.
+I need to start thinking about how to create a stable socket system because connections are not created automatically, they are created when the users decides to start a new session.
