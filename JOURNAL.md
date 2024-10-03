@@ -28,3 +28,7 @@ WebSocket server was refactored too btw.
 
 I have refactored a little bit the client side and also make the client socket work for react. I just need to improve it a little bit more but I got focused on refactoring. Which it is my next objective: Refactor Login.tsx and then start improving the client websocket.
 I need to start thinking about how to create a stable socket system because connections are not created automatically, they are created when the users decides to start a new session.
+
+### 03-10-2024
+
+Today I was working on the Login.tsx component doing some refactoring but I mainly focused on the UI part. I have created a shared component for buttons and I added responsiveness. For the next day I would like to add some functionality to create a session. e.g: User clicks create session then a new session is created.

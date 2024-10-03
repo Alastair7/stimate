@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { socket } from "../shared/ws-client/wsClient";
+import { socket } from "../../shared/ws-client/wsClient";
 
 const Session = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
