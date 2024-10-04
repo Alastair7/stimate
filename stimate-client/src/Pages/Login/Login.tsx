@@ -35,9 +35,11 @@ const Login = () => {
             onChange={onChangeNickname}
             placeholder="Nickname"
           />
-          <button onClick={onClickSetNickname} className="ml-3 bg-sky_blue_100">
-            Set
-          </button>
+          <Button
+            onClick={onClickSetNickname}
+            className="ml-3 p-1 rounded-md bg-sky_blue_100 font-semibold"
+            text={"Set"}
+          />
         </div>
       </div>
       <div className="flex justify-center items-center gap-2 mt-16">

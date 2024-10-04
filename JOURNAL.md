@@ -32,3 +32,7 @@ I need to start thinking about how to create a stable socket system because conn
 ### 03-10-2024
 
 Today I was working on the Login.tsx component doing some refactoring but I mainly focused on the UI part. I have created a shared component for buttons and I added responsiveness. For the next day I would like to add some functionality to create a session. e.g: User clicks create session then a new session is created.
+
+### 05-10-2024
+
+I hadn't too much time to code and it's almost 1 a.m and I am feeling tired. BUT i added the classnames library to use conditional classnames and to be able to join them. Also this is a note for the future me: Create components for the Login screen which manages its own status.
