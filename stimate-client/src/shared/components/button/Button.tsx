@@ -1,14 +1,12 @@
 type ButtonProps = {
   text: string;
   className?: string;
-  isPressed: boolean;
 } & React.PropsWithChildren<React.ComponentPropsWithoutRef<"button">>;
 
 const Button: React.FC<ButtonProps> = ({
   text,
   children,
   className,
-  isPressed = false,
   ...props
 }: ButtonProps) => {
   return (

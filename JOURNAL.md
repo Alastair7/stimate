@@ -36,3 +36,10 @@ Today I was working on the Login.tsx component doing some refactoring but I main
 ### 05-10-2024
 
 I hadn't too much time to code and it's almost 1 a.m and I am feeling tired. BUT i added the classnames library to use conditional classnames and to be able to join them. Also this is a note for the future me: Create components for the Login screen which manages its own status.
+
+### 06-10-2024
+
+I am trying to connect more users via websockets but I am lost trying to figure out how to do it. It's time to take a sit and start reading docs.
+Also I have achieved to receive the RoomCode created by the server.
+
+My next goal is to Join an existent session.

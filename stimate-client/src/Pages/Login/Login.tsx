@@ -1,23 +1,12 @@
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../shared/components/button/Button";
-import { navToSessions, setUsername } from "./domain";
+import { NicknameInput } from "./NicknameInput";
 
 const Login = () => {
-  const [nickname, setNickname] = useState<string>("");
-  const onChangeNickname = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setNickname(event.currentTarget.value);
-    },
-    [nickname]
-  );
-
-  const onClickSetNickname = () => setUsername(nickname);
-
-  useEffect(() => {
-    const value = sessionStorage.getItem("nickname");
-    setNickname(value ?? "");
-  }, []);
-
+  const nav = useNavigate();
+  const [room, setRoom] = useState<string>("");
+  console.log("Room", room);
   return (
     <div className="min-h-screen bg-dark_space">
       <header className="flex flex-col items-center gap-3 mb-20">
@@ -26,25 +15,20 @@ const Login = () => {
           Estimate with your teammates for FREE
         </h2>
       </header>
-      <div className="flex justify-center items-center mt-7">
-        <div className="bg-transparent border-b border-white">
-          <input
-            className="bg-transparent border-none border-teal-500 text-gray-100 py-2 focus:outline-none"
-            type="text"
-            value={nickname}
-            onChange={onChangeNickname}
-            placeholder="Nickname"
-          />
-          <Button
-            onClick={onClickSetNickname}
-            className="ml-3 p-1 rounded-md bg-sky_blue_100 font-semibold"
-            text={"Set"}
-          />
-        </div>
-      </div>
+      <NicknameInput />
+      <input
+        className="bg-transparent border-none border-teal-500 text-gray-100 py-2 focus:outline-none"
+        type="text"
+        value={room}
+        onChange={(e) => setRoom(e.target.value)}
+        placeholder="RoomCode"
+      />
       <div className="flex justify-center items-center gap-2 mt-16">
-        <Button onClick={navToSessions} text="Create Session" />
-        <Button text="Join Session" />
+        <Button onClick={() => nav("sessions")} text="Create Session" />
+        <Button
+          text="Join Session"
+          onClick={() => nav("sessions", { state: { roomCode: room } })}
+        />
       </div>
     </div>
   );

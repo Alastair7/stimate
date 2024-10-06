@@ -20,6 +20,7 @@ class WebsocketServer {
       const roomCode = generateRoomCode();
       console.log("User connected");
       socket.join(roomCode);
+      socket.emit("roomCreated", roomCode);
       console.log("Socket joined to room:", roomCode);
     });
   }
