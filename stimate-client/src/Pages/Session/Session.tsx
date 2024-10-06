@@ -1,23 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { socket } from "../../shared/ws-client/wsClient";
 import { User } from "./User";
 
 const Session = () => {
   const [roomID, setRoomID] = useState<string>("");
   const [users, setUsers] = useState<string[]>([]);
-  const { state } = useLocation();
-  const { roomCode } = state ?? "";
-
-  console.log("RoomCode:", roomCode);
-
-  socket.connect();
-
-  useEffect(() => {
-    setUsers(users);
-  }, [users]);
-
-  const renderUsers = users.map(() => <User />);
 
   function onConnect() {
     console.log("Client Connected");
@@ -29,15 +16,21 @@ const Session = () => {
     setRoomID(arg);
   }
 
-  function onMessage(message: string) {
-    socket.send(message);
-  }
+  console.log("Users", users);
+  useEffect(() => {
+    setUsers(users);
+  }, [users]);
 
-  roomCode ? socket.send(roomCode) : null;
+  const renderUsers = users.map(() => <User />);
+  useEffect(() => {
+    if (!socket.connected) {
+      socket.connect();
+      socket.emit("roomCreation");
 
-  socket.on("connect", onConnect);
-  socket.on("roomCreated", onRoomCreated);
-  socket.on("message", onMessage);
+      socket.on("connect", onConnect);
+      socket.on("roomCreated", onRoomCreated);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-dark_space">
