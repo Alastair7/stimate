@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { socket } from "../../shared/ws-client/wsClient";
 import { User } from "./User";
 
 const Session = () => {
   const [roomID, setRoomID] = useState<string>("");
   const [users, setUsers] = useState<string[]>([]);
+  const location = useLocation();
+
+  const { room } = location.state;
 
   function onConnect() {
     console.log("Client Connected");
@@ -25,7 +29,7 @@ const Session = () => {
   useEffect(() => {
     if (!socket.connected) {
       socket.connect();
-      socket.emit("roomCreation");
+      room ? socket.emit("roomJoin", room) : socket.emit("roomCreation");
 
       socket.on("connect", onConnect);
       socket.on("roomCreated", onRoomCreated);

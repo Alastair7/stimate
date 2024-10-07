@@ -25,7 +25,10 @@ const Login = () => {
       />
       <div className="flex justify-center items-center gap-2 mt-16">
         <Button onClick={() => nav("sessions")} text="Create Session" />
-        <Button text="Join Session" />
+        <Button
+          onClick={() => nav("sessions", { state: { room } })}
+          text="Join Session"
+        />
       </div>
     </div>
   );

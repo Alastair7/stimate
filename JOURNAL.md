@@ -43,3 +43,5 @@ I am trying to connect more users via websockets but I am lost trying to figure 
 Also I have achieved to receive the RoomCode created by the server.
 
 My next goal is to Join an existent session.
+
+I have created a few more events for the client and the server because I had a bright moment. But It doesn't seem to work as expected. Probably is skill issue with my React knowledge, then I should read about it.
