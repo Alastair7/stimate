@@ -19,20 +19,15 @@ export const NicknameInput = () => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center mt-7">
-      <div className="bg-transparent border-b border-white">
+    <div>
+      <div>
         <input
-          className="bg-transparent border-none border-teal-500 text-gray-100 py-2 focus:outline-none"
           type="text"
           value={nickname}
           onChange={onChangeNickname}
           placeholder="Nickname"
         />
-        <Button
-          onClick={onClickSetNickname}
-          className="ml-3 p-1 rounded-md bg-sky_blue_100 font-semibold"
-          text={"Set"}
-        />
+        <Button onClick={onClickSetNickname} text={"Set"} />
       </div>
     </div>
   );

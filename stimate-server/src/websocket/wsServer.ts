@@ -17,12 +17,13 @@ class WebsocketServer {
     });
 
     wsServer.on("connection", async (socket) => {
-      const roomCode = generateRoomCode();
-      console.log("User connected to the server.");
+      console.log("Socket connected to the server.");
 
       socket.on("roomCreation", async () => {
+        const roomCode = generateRoomCode();
         console.log("Joining socket to room:", roomCode);
         await socket.join(roomCode);
+
         socket.emit("roomCreated", roomCode);
       });
 
