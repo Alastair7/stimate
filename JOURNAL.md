@@ -49,3 +49,10 @@ I have created a few more events for the client and the server because I had a b
 ### 08-10-2024
 
 I got stuck with the react router and I don't really know how to pass data through components. In my opinion, I should stop trying and start reading the react router docs to know what I am doing. Then I can keep going. So, my next objective is to get to know a better react-router.
+
+### 25-10-2024
+
+After some time I came back to this project and I will fresh start on the client part because I want to try antdesign.
+So yeah, It's a new opportunity to learn new tech stack.
+
+I have started working on the home page. It is still WIP but I feel more comfortable because I have did some design work before starting coding.
