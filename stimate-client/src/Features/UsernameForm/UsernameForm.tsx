@@ -3,11 +3,16 @@ import { setUsername } from "./domain";
 type FieldType = {
   username: string;
 };
-const UsernameForm = () => {
+
+type Props = {
+  setShowUsernameForm: (value: boolean) => void;
+};
+const UsernameForm = ({ setShowUsernameForm }: Props) => {
   const onFinish: FormProps<FieldType>["onFinish"] = ({
     username,
   }: FieldType) => {
     setUsername(username);
+    setShowUsernameForm(false);
   };
 
   return (

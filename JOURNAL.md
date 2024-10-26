@@ -56,3 +56,9 @@ After some time I came back to this project and I will fresh start on the client
 So yeah, It's a new opportunity to learn new tech stack.
 
 I have started working on the home page. It is still WIP but I feel more comfortable because I have did some design work before starting coding.
+
+### 26-10-2024
+
+Today I will not be home until late night so I might not be have too much progress. BUT I have did some frontend for the home page. No big deal, just a title and a logic to retrieve the nickname from the session.
+
+It needs some CSS but it's a start.
