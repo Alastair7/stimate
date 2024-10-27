@@ -7,8 +7,9 @@ export const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
   },
+
   {
-    path: "/sessions",
+    path: "/session/:id",
     element: <Session />,
   },
 ]);

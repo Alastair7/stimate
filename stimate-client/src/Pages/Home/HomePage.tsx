@@ -1,11 +1,17 @@
 import { Button } from "antd";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UsernameForm } from "../../Features/UsernameForm/UsernameForm";
-import { getSessionUsername, hasSessionUsername } from "./domain";
+import {
+  CreateSession,
+  getSessionUsername,
+  hasSessionUsername,
+} from "./domain";
 import "./homepage.css";
 const HomePage = () => {
   const [showUsernameForm, setShowUsernameForm] = useState(hasSessionUsername);
   const nickname = showUsernameForm ? "Stranger" : getSessionUsername() ?? "";
+  const nav = useNavigate();
 
   return (
     <div>
@@ -19,7 +25,9 @@ const HomePage = () => {
       </div>
 
       <div className="homepage_buttons__wrapper">
-        <Button type="primary">Create Session</Button>
+        <Button type="primary" onClick={() => CreateSession(nav)}>
+          Create Session
+        </Button>
         <Button>Join Session</Button>
       </div>
     </div>

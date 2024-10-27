@@ -1,6 +1,5 @@
 import { Server as HttpServer } from "http";
 import { Server } from "socket.io";
-import { generateRoomCode } from "./domain.ts";
 
 class WebsocketServer {
   url: string;
@@ -19,12 +18,10 @@ class WebsocketServer {
     wsServer.on("connection", async (socket) => {
       console.log("Socket connected to the server.");
 
-      socket.on("roomCreation", async () => {
-        const roomCode = generateRoomCode();
+      socket.on("createSession", async (roomCode) => {
         console.log("Joining socket to room:", roomCode);
         await socket.join(roomCode);
-
-        socket.emit("roomCreated", roomCode);
+        console.log("Session was created");
       });
 
       socket.on("roomJoin", async (data) => {
