@@ -11,7 +11,7 @@ export const sendCreateRoomEvent = () => {
   socket.emit("createRoom");
 };
 
-export const CreateSession = (navigate: (path: string) => void) => {
+export const CreateSession = (): SocketSession => {
   const session = new SocketSession();
   if (!session.socket.connected) {
     session.socket.connect();
@@ -22,5 +22,5 @@ export const CreateSession = (navigate: (path: string) => void) => {
 
   session.roomId = roomCode;
 
-  navigate(`/session/${roomCode}`);
+  return session;
 };

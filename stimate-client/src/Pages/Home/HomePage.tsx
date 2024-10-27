@@ -13,6 +13,12 @@ const HomePage = () => {
   const nickname = showUsernameForm ? "Stranger" : getSessionUsername() ?? "";
   const nav = useNavigate();
 
+  const onCreateSessionClick = () => {
+    const session = CreateSession();
+    console.log("Room ID:", session.roomId);
+    nav(`/session/${session.roomId}`, { state: session });
+  };
+
   return (
     <div>
       {showUsernameForm ? (
@@ -25,7 +31,7 @@ const HomePage = () => {
       </div>
 
       <div className="homepage_buttons__wrapper">
-        <Button type="primary" onClick={() => CreateSession(nav)}>
+        <Button type="primary" onClick={onCreateSessionClick}>
           Create Session
         </Button>
         <Button>Join Session</Button>
